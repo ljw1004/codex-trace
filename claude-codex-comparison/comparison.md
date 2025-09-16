@@ -20,12 +20,12 @@ Please document all your findings in a new file "mcp.md". Thank you!
 [For a second run of Claude, I added "I want you to ultrathink in your response because it has to be thorough. Please include file+line references."]
 
 **Results**
-* Codex/GPT-5-codex - codex-result.md - codex-trace.html
+* Codex/GPT-5-codex - [codex-result.md](https://github.com/ljw1004/codex-trace/blob/main/claude-codex-comparison/codex-result.md) - [codex-trace.html](https://ljw1004.github.io/codex-trace/claude-codex-comparison/codex-trace.html)
    * 9 minutes
    * 53 function calls of which 4 were update_plan and 49 were shell (23 sed, 6 ls, 9 rg, 8 nl, 3 cat)
    * 54 assistant messages (parallel tool calling not supported)
    * 48 reasoning blocks, i.e on most messages, typically 1-2k (encrypted)
-* Claude/Opus-4.1 - claude-result.md - claude-trace.html
+* Claude/Opus-4.1 - [claude-result.md](https://github.com/ljw1004/codex-trace/blob/main/claude-codex-comparison/claude-result.md) - [claude-trace.html](https://ljw1004.github.io/codex-trace/claude-codex-comparison/claude-trace.html)
    * 3 minutes
    * 19 tool calls of which 5 were TodoWrite, 11 Read, 2 Grep, 1 Write
    * 20 assistant messages (it didn't end up chosing to use parallel tool calls)
