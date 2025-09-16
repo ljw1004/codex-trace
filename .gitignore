@@ -1,0 +1,8 @@
+__pycache__/
+*.py[cod]
+*.pyi
+*.pyo
+*.pyd
+*.swp
+.DS_Store
+.claude
