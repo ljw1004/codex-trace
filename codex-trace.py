@@ -263,7 +263,7 @@ def render_delta(delta: Any) -> Any:
             tools_content: list[Render] = []
             for tool in d["tools"]:
                 tool = cast(dict[str,Any], tool)
-                tools_content.append({"RENDER": True, "label": f"tool: {esc(tool['name'])}", "content": tool["parameters"] | {"description": tool["description"]}})
+                tools_content.append({"RENDER": True, "label": f"{esc(tool['type'])} tool: {esc(tool.get('name',''))}", "content": tool.get("parameters",{}) | {"description": tool.get('description','')}})
             content.append({"RENDER": True, "label": "tools: ", "value": f"[{len(d['tools'])} tools]", "content": tools_content})
         if "input" in d or "input+" in d:
             input_blocks: list[dict[str, Any]] = d.get("input", d.get("input+", []))
@@ -357,7 +357,7 @@ def main() -> int:
                 text = unescape_rust(m.group(1) if m else "")
                 text = re.split(r'## My request for Codex:\s*', text, maxsplit=1)[-1]
                 text = re.sub(r'[^\w \-]+', '', text, flags=re.ASCII)
-                text = " ".join(text.strip().split(" ")[:5])[:20].strip()
+                text = " ".join(text.strip().split(" ")[:10])[:50].strip()
                 prompt = prompt if prompt is not None else " - " + text if text else ""
             elif re.search(r"^[^{]*POST to[^{]*{", line):
                 try:
